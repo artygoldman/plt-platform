@@ -1,0 +1,50 @@
+# Phase 3: PLT Agent Orchestration Engine - Dependencies
+
+## Core LangGraph Dependencies
+langgraph>=0.0.50              # Graph orchestration + StateGraph
+langgraph[postgres]>=0.0.50    # PostgreSQL checkpointing
+
+## Async HTTP Client
+anthropic>=0.28.0              # AsyncAnthropic client for Claude API
+
+## PostgreSQL
+sqlalchemy>=2.0.0              # ORM for database operations
+asyncpg>=0.28.0                # Async PostgreSQL driver
+psycopg2-binary>=2.9.0         # Fallback synchronous driver
+
+## Async / Concurrency
+asyncio                        # Built-in (Python 3.8+)
+typing                         # Built-in (Python 3.8+)
+
+## Utilities
+pydantic>=2.0.0                # Data validation (for API layer)
+pydantic-settings>=2.0.0       # Settings management
+
+## Logging & Monitoring (Recommended)
+python-json-logger>=2.0.0      # Structured JSON logging
+opentelemetry-api>=1.0.0       # Observability (optional)
+opentelemetry-exporter-prometheus>=0.40b0  # Metrics export (optional)
+
+## Testing (Recommended)
+pytest>=7.0.0                  # Testing framework
+pytest-asyncio>=0.21.0         # Async test support
+pytest-mock>=3.0.0             # Mocking utilities
+
+## Load Testing (Recommended)
+locust>=2.0.0                  # Load testing
+artillery>=2.0.0               # Load testing (alternative)
+
+## Python Version
+python>=3.8                    # Async/await support required
+
+## Environment Setup
+.env                           # Configure:
+                               # DATABASE_URL=postgresql+asyncpg://user:pass@localhost/plt
+                               # DATABASE_URL_SYNC=postgresql://user:pass@localhost/plt
+                               # ANTHROPIC_API_KEY=sk-...
+                               # REDIS_URL=redis://localhost:6379
+
+## Database Setup
+Alembic                        # Database migrations (already in Phase 1)
+                               # Run: alembic upgrade head
+

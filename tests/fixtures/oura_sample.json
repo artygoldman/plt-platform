@@ -1,0 +1,68 @@
+{
+  "data": {
+    "sleep": [
+      {
+        "id": "sleep_2026_03_26_15_32_00",
+        "period": 0,
+        "day": "2026-03-26",
+        "timestamp": "2026-03-27T07:32:00Z",
+        "bedtime_start": "2026-03-26T23:00:00Z",
+        "bedtime_end": "2026-03-27T07:00:00Z",
+        "duration": 28800000,
+        "total_sleep": 28000000,
+        "awake": 800000,
+        "light": 14400000,
+        "deep": 8400000,
+        "rem": 5200000,
+        "sleep_phase": "light",
+        "hr_lowest": 48,
+        "hr_average": 58,
+        "hr_5min": [58, 57, 56, 56, 55],
+        "rmssd": 28.5,
+        "temperature_deviation": -0.1,
+        "sleep_score": 82
+      }
+    ],
+    "activity": [
+      {
+        "id": "activity_2026_03_26_15_32_00",
+        "day": "2026-03-26",
+        "timestamp": "2026-03-27T07:32:00Z",
+        "steps": 8642,
+        "total_calories": 2200,
+        "active_calories": 650,
+        "active_time": 1800000,
+        "low": 7200000,
+        "medium": 1800000,
+        "high": 0,
+        "class_5min": [1, 1, 1, 2, 2, 1, 1, 1, 2, 3],
+        "met_1min": [1.1, 1.2, 1.1, 3.5, 4.2, 1.3, 1.1, 1.2, 3.8, 5.2],
+        "inactivity_alerts": 0,
+        "activity_score": 78
+      }
+    ],
+    "readiness": [
+      {
+        "id": "readiness_2026_03_26_15_32_00",
+        "period": 0,
+        "day": "2026-03-26",
+        "timestamp": "2026-03-27T07:32:00Z",
+        "status": "good",
+        "score": 75,
+        "score_delta": 5,
+        "score_previous_night": 70,
+        "contributors": {
+          "activity_balance": 95,
+          "body_temperature": 98,
+          "hrv_balance": 72,
+          "previous_day_activity": 80,
+          "previous_night": 75,
+          "recovery_index": 65,
+          "resting_heart_rate": 88,
+          "sleep_balance": 70
+        }
+      }
+    ]
+  },
+  "next_token": "next_page_token_123"
+}

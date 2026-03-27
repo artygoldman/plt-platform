@@ -1,0 +1,17 @@
+[project]
+name = "plt-platform"
+version = "0.1.0"
+description = "Personal Longevity Team Platform - Phase 1A"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+
+[tool.black]
+line-length = 100
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
