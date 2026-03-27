@@ -1,5 +1,6 @@
 """Database base configuration and session management."""
 
+import os
 from typing import AsyncGenerator
 
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
@@ -14,9 +15,20 @@ class Base(DeclarativeBase):
 
 
 def get_database_url() -> str:
-    """Get the async database URL from settings."""
+    """Get the async database URL from settings.
+
+    Converts postgresql:// to postgresql+asyncpg:// if needed.
+    """
     settings = get_settings()
-    return settings.database_url
+    url = settings.database_url
+
+    # Railway provides postgresql:// but asyncpg needs postgresql+asyncpg://
+    if url.startswith("postgresql://"):
+        url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+    elif url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql+asyncpg://", 1)
+
+    return url
 
 
 def create_engine_and_session():
@@ -42,6 +54,12 @@ def create_engine_and_session():
 
 # Create engine and session factory at module load time
 engine, AsyncSessionLocal = create_engine_and_session()
+
+
+async def init_db():
+    """Initialize the database by creating all tables."""
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
 
 
 async def get_db() -> AsyncGenerator[AsyncSession, None]:
