@@ -69,3 +69,8 @@ async def get_db() -> AsyncGenerator[AsyncSession, None]:
             yield session
         finally:
             await session.close()
+
+
+def get_session():
+    """Return the async session factory (used by deps.py)."""
+    return AsyncSessionLocal()
